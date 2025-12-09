@@ -22,6 +22,16 @@ body {
   background-color: var(--grey-900);
 }
 
+.sr-only {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 0.0625rem;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 0.0625rem;
+}
+
 .container {
   width: 100%;
   max-width: var(--container-width);
@@ -62,7 +72,7 @@ body {
 
 .card__person-name {
   margin-bottom: 0.25rem;
-  font-size: 24px;
+  font-size: 1.5rem;
   font-weight: 700;
 }
 
@@ -95,6 +105,12 @@ body {
   transition: scale .2s ease-in-out;
 }
 
+@media (prefers-reduced-motion: reduce) {
+  .card__link-item {
+    transition: scale .8s ease-in-out;
+  }
+}
+
 .card__link {
   display: block;
   padding: 0.6875rem;
@@ -123,12 +139,12 @@ body {
 
 /* links hover state */
 @media (any-hover: hover) {
-  .card__link-item:hover .card__link {
+  .card__link:hover {
     color: var(--grey-700);
   }
 
-  .card__link-item:hover .card__link::before,
-  .card__link-item:hover .card__link::after {
+  .card__link:hover::before,
+  .card__link:hover::after {
     transform: translateX(0);
     background-color: var(--accent-color);
     transition: background-color .4s, transform .5s ease-out;
@@ -137,7 +153,7 @@ body {
 
 /* links focus state */
 .card__link:focus {
-  outline: none;
+  outline: transparent;
 }
 
 .card__link:focus-visible {
@@ -146,17 +162,17 @@ body {
 }
 
 /* links active state */
-.card__link-item:active .card__link {
-  color: var(--grey-700);
-}
-
 .card__link-item:active {
   scale: 0.98;
   transition: scale .2s ease;
 }
 
-.card__link-item:active .card__link::before,
-.card__link-item:active .card__link::after {
+.card__link:active {
+  color: var(--grey-700);
+}
+
+.card__link:active::before,
+.card__link:active::after {
   transform: translateX(0);
   background-color: var(--accent-color);
   transition: background-color .2s, transform .3s ease-out;
