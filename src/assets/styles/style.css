@@ -105,12 +105,6 @@ body {
   transition: scale .2s ease-in-out;
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .card__link-item {
-    transition: scale .8s ease-in-out;
-  }
-}
-
 .card__link {
   display: block;
   padding: 0.6875rem;
@@ -176,4 +170,15 @@ body {
   transform: translateX(0);
   background-color: var(--accent-color);
   transition: background-color .2s, transform .3s ease-out;
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .card__link-item {
+    transition: scale .8s ease-in-out;
+  }
+
+  .card__link {
+    transition: color .4s ease-out;
+  }
 }
