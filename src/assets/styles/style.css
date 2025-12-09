@@ -181,4 +181,16 @@ body {
   .card__link {
     transition: color .4s ease-out;
   }
+
+  .card__link-item:active {
+    scale: 0.98;
+    transition: scale .4s ease;
+  }
+
+  .card__link:active::before,
+  .card__link:active::after {
+    transform: translateX(0);
+    background-color: var(--accent-color);
+    transition: background-color .4s, transform .6s ease-out;
+  }
 }
